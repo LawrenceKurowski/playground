@@ -1,35 +1,20 @@
-document.getElementById('executeButton').addEventListener('click', function() {
-    // When the button is clicked, send a request to the backend
-    fetch('/execute_function', {
-        method: 'POST',
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-        // Handle the response from the backend if needed
-    })
-    .catch(error => console.error('Error:', error));
-});
-
-document.getElementById('numberForm').addEventListener('submit', function(event) {
+document.getElementById('myForm').addEventListener('submit', function() {
+    // Code to be executed when the button is clicked
     event.preventDefault();
 
-    // Get the entered number
-    const enteredNumber = document.getElementById('numberInput').value;
+    const num1 = document.getElementById('numberOne').value;
+    const num2 = document.getElementById('numberTwo').value;
+    // console.log(numberOne, numberTwo);
 
-    // Send the number to the backend (you can use fetch or another method)
-    // Example using fetch:
-    fetch('/backend-endpoint', {
+    fetch('/process_form', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ number: enteredNumber }),
+        body: JSON.stringify({ number1: num1, number2: num2 }),
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Response from backend:', data);
-        // Handle the response if needed
-    })
-    .catch(error => console.error('Error:', error));
+    .then(response=>response.json())
+    .then(data=>alert('Sum of ' + num1 + ' and ' + num2 + ' is: ' + data.result))
+    .catch(error => 
+        console.error('Error:', error));
 });
