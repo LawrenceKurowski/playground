@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summation app</title>
+    <script src="{{ url_for('static', filename='script.js') }}" async></script>
+</head>
+<body>
+    
+    <form id = "myForm">
+        <label for="numberOne">Number A:</label>
+        <input type="text" id="numberOne" name="numberOne" required>
+        <br>
+        <label for="numberTwo">Number B:</label>
+        <input type="text" id="numberTwo" name="numberTwo" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
